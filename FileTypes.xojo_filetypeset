@@ -1,0 +1,31 @@
+#tag FileTypeSet
+	#tag FileType
+		CodeName=Text
+		Extension=
+		Flags=&h0
+		MacCreator=R*ch
+		MacType=TEXT
+		Name=text
+		UTI=
+		UTIConformsTo=
+		Description=
+		MimeType=
+		Imported=False
+	#tag EndFileType
+
+	#tag FileType
+		CodeName=SpecialAny
+		DocIcon=SimpleCSVSample.xojo_resources;&h0
+		Extension=
+		Flags=&h0
+		MacCreator=????
+		MacType=????
+		Name=special/any
+		UTI=
+		UTIConformsTo=
+		Description=
+		MimeType=
+		Imported=False
+	#tag EndFileType
+
+#tag EndFileTypeSet
