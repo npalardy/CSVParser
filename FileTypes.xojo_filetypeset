@@ -7,10 +7,12 @@
 		MacType=TEXT
 		Name=text
 		UTI=
-		UTIConformsTo=
+		UTIConformsTo=,public.data
 		Description=
 		MimeType=
 		Imported=False
+		HandlerRank=&h9
+		UTIPhysicalType=public.data
 	#tag EndFileType
 
 	#tag FileType
@@ -22,10 +24,12 @@
 		MacType=????
 		Name=special/any
 		UTI=
-		UTIConformsTo=
+		UTIConformsTo=,public.data
 		Description=
 		MimeType=
 		Imported=False
+		HandlerRank=&h9
+		UTIPhysicalType=public.data
 	#tag EndFileType
 
 #tag EndFileTypeSet

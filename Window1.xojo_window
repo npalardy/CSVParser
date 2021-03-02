@@ -4,7 +4,6 @@ Begin Window Window1
    Backdrop        =   0
    BalloonHelp     =   ""
    CloseButton     =   True
-   Compatibility   =   ""
    Composite       =   False
    Frame           =   0
    FullScreen      =   False
@@ -12,7 +11,7 @@ Begin Window Window1
    HasBackColor    =   False
    Height          =   275
    ImplicitInstance=   True
-   LiveResize      =   False
+   LiveResize      =   "False"
    MacProcID       =   0
    MaxHeight       =   32000
    MaximizeButton  =   False
@@ -23,28 +22,27 @@ Begin Window Window1
    MinimizeButton  =   True
    MinWidth        =   64
    Placement       =   0
-   Resizeable      =   False
+   Resizeable      =   True
    Title           =   "Untitled"
    Visible         =   True
    Width           =   633
    Begin CSVParser CSVParser1
-      ControlOrder    =   "0"
       fieldenclosure  =   """"""
       fieldseparator  =   ","
       FieldsEscapedBy =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       LockedInPosition=   False
-      TabPanelIndex   =   "0"
+      Scope           =   0
+      TabPanelIndex   =   0
       treatFirstLineAsHeaders=   False
    End
    Begin PushButton PushButton1
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "event driven parser"
-      ControlOrder    =   "1"
       Default         =   False
       Enabled         =   True
       Height          =   20
@@ -58,6 +56,7 @@ Begin Window Window1
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
+      Scope           =   0
       TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
@@ -70,65 +69,62 @@ Begin Window Window1
       Visible         =   True
       Width           =   148
    End
-   Begin ListBox ListBox1
+   Begin TextArea TextArea1
+      AcceptTabs      =   False
+      Alignment       =   0
       AutoDeactivate  =   True
-      AutoHideScrollbars=   True
+      AutomaticallyCheckSpelling=   True
+      BackColor       =   &cFFFFFF00
       Bold            =   False
       Border          =   True
-      ColumnCount     =   1
-      ColumnsResizable=   False
-      ColumnWidths    =   ""
-      ControlOrder    =   "2"
       DataField       =   ""
       DataSource      =   ""
-      DefaultRowHeight=   -1
       Enabled         =   True
-      EnableDrag      =   False
-      EnableDragReorder=   False
-      GridLinesHorizontal=   0
-      GridLinesVertical=   0
-      HasHeading      =   False
-      HeadingIndex    =   -1
+      Format          =   ""
       Height          =   100
       HelpTag         =   ""
-      Hierarchical    =   False
+      HideSelection   =   True
       Index           =   -2147483648
       InitialParent   =   ""
-      InitialValue    =   ""
       Italic          =   False
       Left            =   20
-      LockBottom      =   False
+      LimitText       =   0
+      LineHeight      =   0.0
+      LineSpacing     =   1.0
+      LockBottom      =   True
       LockedInPosition=   False
-      LockLeft        =   False
-      LockRight       =   False
-      LockTop         =   False
-      RequiresSelection=   False
-      ScrollbarHorizontal=   False
+      LockLeft        =   True
+      LockRight       =   True
+      LockTop         =   True
+      Mask            =   ""
+      Multiline       =   True
+      ReadOnly        =   False
+      Scope           =   0
+      ScrollbarHorizontal=   True
       ScrollBarVertical=   True
-      SelectionType   =   0
-      ShowDropIndicator=   False
+      Styled          =   True
       TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
+      Text            =   ""
+      TextColor       =   &c00000000
       TextFont        =   "System"
       TextSize        =   12.0
       TextUnit        =   0
       Top             =   155
       Transparent     =   True
       Underline       =   False
+      UnicodeMode     =   0
       UseFocusRing    =   True
       Visible         =   True
       Width           =   591
-      _ScrollOffset   =   0
-      _ScrollWidth    =   -1
    End
    Begin PushButton PushButton2
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "db like parser"
-      ControlOrder    =   "3"
       Default         =   False
       Enabled         =   True
       Height          =   20
@@ -139,9 +135,10 @@ Begin Window Window1
       Left            =   456
       LockBottom      =   False
       LockedInPosition=   False
-      LockLeft        =   False
+      LockLeft        =   True
       LockRight       =   False
-      LockTop         =   False
+      LockTop         =   True
+      Scope           =   0
       TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
@@ -157,10 +154,9 @@ Begin Window Window1
    Begin PushButton PushButton3
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "stress test db parser"
-      ControlOrder    =   "4"
       Default         =   False
       Enabled         =   True
       Height          =   20
@@ -172,8 +168,9 @@ Begin Window Window1
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   False
-      LockRight       =   False
-      LockTop         =   False
+      LockRight       =   True
+      LockTop         =   True
+      Scope           =   0
       TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
@@ -189,10 +186,9 @@ Begin Window Window1
    Begin PushButton PushButton4
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "tabbed"
-      ControlOrder    =   "5"
       Default         =   False
       Enabled         =   True
       Height          =   20
@@ -206,6 +202,7 @@ Begin Window Window1
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
+      Scope           =   0
       TabIndex        =   5
       TabPanelIndex   =   0
       TabStop         =   True
@@ -222,7 +219,6 @@ Begin Window Window1
       AutoDeactivate  =   True
       Bold            =   False
       Caption         =   "treat first line as headers"
-      ControlOrder    =   "6"
       DataField       =   ""
       DataSource      =   ""
       Enabled         =   True
@@ -237,6 +233,7 @@ Begin Window Window1
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
+      Scope           =   0
       State           =   0
       TabIndex        =   6
       TabPanelIndex   =   0
@@ -259,7 +256,6 @@ Begin Window Window1
       BackColor       =   &cFFFFFF00
       Bold            =   False
       Border          =   True
-      ControlOrder    =   "7"
       CueText         =   ""
       DataField       =   ""
       DataSource      =   ""
@@ -278,12 +274,9 @@ Begin Window Window1
       LockRight       =   False
       LockTop         =   False
       Mask            =   "&"
-      Multiline       =   False
       Password        =   False
       ReadOnly        =   False
-      ScrollbarHorizontal=   False
-      ScrollbarVertical=   True
-      Styled          =   False
+      Scope           =   0
       TabIndex        =   7
       TabPanelIndex   =   0
       TabStop         =   True
@@ -302,7 +295,6 @@ Begin Window Window1
    Begin Label StaticText1
       AutoDeactivate  =   True
       Bold            =   False
-      ControlOrder    =   "8"
       DataField       =   ""
       DataSource      =   ""
       Enabled         =   True
@@ -318,6 +310,7 @@ Begin Window Window1
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   8
       TabPanelIndex   =   0
@@ -343,31 +336,29 @@ End
 #tag Events CSVParser1
 	#tag Event
 		Sub headers(lineNumber as integer, values() as string)
+		  #Pragma unused lineNumber
 		  
-		  dim i as integer
-		  dim s as string
+		  Dim rowRead As String
 		  
-		  for i = 0 to ubound(values)
-		    
-		    s = s + "[" + ReplaceLineEndings(values(i),"<CR>") + "]"
-		  next
+		  For i As Integer = 0 To ubound(values)
+		    rowRead = rowRead + "[" + ReplaceLineEndings(values(i),"<CR>") + "]"
+		  Next
 		  
-		  listbox1.addrow "HEADERS " + s
+		  TextArea1.AddText "HEADERS " + rowRead + EndOfLine
 		  
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub newLine(lineNumber as integer, values() as string)
+		  #Pragma unused lineNumber
 		  
-		  dim i as integer
-		  dim s as string
+		  Dim rowRead As String
 		  
-		  for i = 0 to ubound(values)
-		    
-		    s = s + "[" + ReplaceLineEndings(values(i),"<CR>") + "]"
+		  For i As Integer = 0 To ubound(values)
+		    rowRead = rowRead + "[" + ReplaceLineEndings(values(i),"<CR>") + "]"
 		  next
 		  
-		  listbox1.addrow s
+		  TextArea1.AddText rowRead + EndOfLine
 		  
 		End Sub
 	#tag EndEvent
@@ -376,17 +367,19 @@ End
 	#tag Event
 		Sub Action()
 		  
-		  dim f as FolderItem
+		  Dim inputFile As FolderItem
 		  
-		  ListBox1.DeleteAllRows
+		  TextArea1.Text = ""
 		  
-		  f = GetOpenFolderItem("special/any")
+		  inputFile = GetOpenFolderItem("special/any")
 		  
-		  if f is nil then return
+		  If inputFile Is Nil Then 
+		    Return
+		  End If
 		  
 		  CSVParser1.treatFirstLineAsHeaders = CheckBox1.Value
 		  
-		  csvParser1.parse(f)
+		  csvParser1.parse(inputFile)
 		  
 		End Sub
 	#tag EndEvent
@@ -395,35 +388,37 @@ End
 	#tag Event
 		Sub Action()
 		  
-		  dim f as FolderItem
+		  Dim inputFile As FolderItem
 		  dim i as integer
-		  dim s as string
-		  dim c as CSVRecordSet
-		  dim dbf as CSVField
+		  Dim rowRead As String
+		  Dim csvRecords As CSVRecordSet
+		  Dim dbField As CSVField
 		  
-		  ListBox1.DeleteAllRows
+		  TextArea1.Text = ""
 		  
-		  f = GetOpenFolderItem("special/any")
+		  inputFile = GetOpenFolderItem("special/any")
 		  
-		  if f is nil then return
+		  If inputFile Is Nil Then 
+		    Return
+		  End If
 		  
-		  c = new CSVRecordSet(f)
+		  csvRecords = New CSVRecordSet(inputFile)
 		  
-		  while c.EOF <> true
-		    s = ""
+		  While csvRecords.EOF <> True
+		    rowRead = ""
 		    
-		    for i = 1 to c.FieldCount
-		      dbf = c.idxField(i)
-		      s = s + "[" + ReplaceLineEndings(dbf.StringValue,"<CR>") + "]"
-		    next
+		    For i = 1 To csvRecords.FieldCount
+		      dbField = csvRecords.idxField(i)
+		      rowRead = rowRead + "[" + ReplaceLineEndings(dbField.StringValue,"<CR>") + "]"
+		    Next
 		    
-		    listbox1.addrow s
+		    TextArea1.AddText rowRead + EndOfLine
 		    
-		    c.MoveNext
+		    csvRecords.MoveNext
 		    
-		  wend
+		  Wend
 		  
-		  c.Close
+		  csvRecords.Close
 		  
 		End Sub
 	#tag EndEvent
@@ -432,51 +427,55 @@ End
 	#tag Event
 		Sub Action()
 		  
-		  dim f as FolderItem
+		  Dim inputFile As FolderItem
 		  dim i as integer
-		  dim s as string
-		  dim c as CSVRecordSet
-		  dim dbf as CSVField
+		  Dim rowRead As String
+		  Dim csvRecords As CSVRecordSet
+		  Dim dbField As CSVField
 		  
-		  ListBox1.DeleteAllRows
+		  TextArea1.Text = ""
 		  
-		  f = GetOpenFolderItem("special/any")
+		  inputFile = GetOpenFolderItem("special/any")
 		  
-		  if f is nil then return
+		  If inputFile Is Nil Then 
+		    Return
+		  End If
 		  
-		  c = new CSVRecordSet(f)
-		  c.Close
+		  csvRecords = New CSVRecordSet(inputFile)
+		  csvRecords.Close
 		  
-		  while c.EOF <> true
+		  While csvRecords.EOF <> True
 		    
-		    for i = 1 to c.FieldCount
-		      dbf = c.idxField(i)
-		      s = s + "[" + ReplaceLineEndings(dbf.StringValue,"<CR>") + "]"
-		    next
+		    rowRead = ""
 		    
-		    listbox1.addrow s
+		    For i = 1 To csvRecords.FieldCount
+		      dbField = csvRecords.idxField(i)
+		      rowRead = rowRead + "[" + ReplaceLineEndings(dbField.StringValue,"<CR>") + "]"
+		    Next
 		    
-		    c.MoveNext
+		    TextArea1.AddText rowRead + EndOfLine
 		    
-		  wend
+		    csvRecords.MoveNext
+		    
+		  Wend
 		  
-		  c.Close
+		  csvRecords.Close
 		  
 		  // now open it
 		  
-		  c = new CSVRecordSet(f)
-		  c.Close
-		  i = c.FieldCount
-		  dbf = c.idxField(1)
-		  dbf = c.idxField(0)
-		  dbf = c.idxField(999)
+		  csvRecords = New CSVRecordSet(inputFile)
+		  csvRecords.Close
+		  i = csvRecords.FieldCount
+		  dbField = csvRecords.idxField(1)
+		  dbField = csvRecords.idxField(0)
+		  dbField = csvRecords.idxField(999)
 		  
-		  c.MoveFirst // this will reopen it
+		  csvRecords.MoveFirst // this will reopen it
 		  
-		  i = c.FieldCount
+		  i = csvRecords.FieldCount
 		  
-		  dbf = c.idxField(i+1)
-		  dbf = c.idxField(0)
+		  dbField = csvRecords.idxField(i+1)
+		  dbField = csvRecords.idxField(0)
 		  
 		End Sub
 	#tag EndEvent
@@ -485,18 +484,20 @@ End
 	#tag Event
 		Sub Action()
 		  
-		  dim f as FolderItem
+		  Dim inputFile As FolderItem
 		  
-		  f = GetOpenFolderItem("special/any")
+		  inputFile = GetOpenFolderItem("special/any")
 		  
-		  ListBox1.DeleteAllRows
+		  TextArea1.Text = ""
 		  
-		  if f is nil then Return
+		  If inputFile Is Nil Then 
+		    Return
+		  End If
 		  
-		  CSVParser1.fieldseparator = chr(9)
+		  CSVParser1.fieldseparator = Chr(9)
 		  CSVParser1.treatFirstLineAsHeaders = CheckBox1.Value
 		  
-		  csvParser1.parse(f)
+		  csvParser1.parse(inputFile)
 		  
 		End Sub
 	#tag EndEvent
@@ -511,105 +512,43 @@ End
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="FullScreenButton"
+		Name="MinimumWidth"
 		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ImplicitInstance"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Interfaces"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Super"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Placement"
-		Visible=true
-		Group="Position"
-		InitialValue="0"
-		Type="Integer"
-		EditorType="Enum"
-		#tag EnumValues
-			"0 - Default"
-			"1 - Parent Window"
-			"2 - Main Screen"
-			"3 - Parent Window Screen"
-			"4 - Stagger"
-		#tag EndEnumValues
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Width"
-		Visible=true
-		Group="Position"
-		InitialValue="300"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Position"
-		InitialValue="300"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinWidth"
-		Visible=true
-		Group="Position"
+		Group="Size"
 		InitialValue="64"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MinHeight"
+		Name="MinimumHeight"
 		Visible=true
-		Group="Position"
+		Group="Size"
 		InitialValue="64"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxWidth"
+		Name="MaximumWidth"
 		Visible=true
-		Group="Position"
+		Group="Size"
 		InitialValue="32000"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxHeight"
+		Name="MaximumHeight"
 		Visible=true
-		Group="Position"
+		Group="Size"
 		InitialValue="32000"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Frame"
+		Name="Type"
 		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="0"
-		Type="Integer"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -626,32 +565,131 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="HasCloseButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="HasMaximizeButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="HasMinimizeButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="HasFullScreenButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DefaultLocation"
+		Visible=true
+		Group="Behavior"
+		InitialValue="0"
+		Type="Locations"
+		EditorType="Enum"
+		#tag EnumValues
+			"0 - Default"
+			"1 - Parent Window"
+			"2 - Main Screen"
+			"3 - Parent Window Screen"
+			"4 - Stagger"
+		#tag EndEnumValues
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="HasBackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+		EditorType="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Super"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Width"
+		Visible=true
+		Group="Position"
+		InitialValue="300"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Position"
+		InitialValue="300"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Composite"
 		Visible=true
 		Group="Appearance"
 		InitialValue="False"
 		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="BackColor"
-		Visible=true
-		Group="Appearance"
-		InitialValue="&hFFFFFF"
-		Type="Color"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Backdrop"
 		Visible=true
 		Group="Appearance"
+		InitialValue=""
 		Type="Picture"
-		EditorType="Picture"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
@@ -659,6 +697,7 @@ End
 		Group="Appearance"
 		InitialValue="Untitled"
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
@@ -666,7 +705,7 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="FullScreen"
@@ -674,7 +713,7 @@ End
 		Group="Appearance"
 		InitialValue="False"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="MenuBarVisible"
@@ -682,15 +721,7 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="CloseButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Resizeable"
@@ -698,31 +729,7 @@ End
 		Group="Appearance"
 		InitialValue="False"
 		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaximizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinimizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="MacProcID"
@@ -730,12 +737,14 @@ End
 		Group="Appearance"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="MenuBar"
 		Visible=true
 		Group="Appearance"
+		InitialValue=""
 		Type="MenuBar"
-		EditorType="MenuBar"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior
