@@ -37,7 +37,7 @@ Begin Window Window1
       TabPanelIndex   =   0
       treatFirstLineAsHeaders=   False
    End
-   Begin PushButton PushButton1
+   Begin PushButton pbEventDriven
       AutoDeactivate  =   True
       Bold            =   False
       ButtonStyle     =   0
@@ -119,7 +119,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   591
    End
-   Begin PushButton PushButton2
+   Begin PushButton pbDBParsers
       AutoDeactivate  =   True
       Bold            =   False
       ButtonStyle     =   0
@@ -151,7 +151,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   155
    End
-   Begin PushButton PushButton3
+   Begin PushButton pbStressTest
       AutoDeactivate  =   True
       Bold            =   False
       ButtonStyle     =   0
@@ -183,7 +183,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   155
    End
-   Begin PushButton PushButton4
+   Begin PushButton pbUseTabs
       AutoDeactivate  =   True
       Bold            =   False
       ButtonStyle     =   0
@@ -215,7 +215,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   148
    End
-   Begin CheckBox CheckBox1
+   Begin CheckBox chkFirstLineIsHeader
       AutoDeactivate  =   True
       Bold            =   False
       Caption         =   "treat first line as headers"
@@ -248,7 +248,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   213
    End
-   Begin TextField EditField1
+   Begin TextField txtEscapeChar
       AcceptTabs      =   False
       Alignment       =   0
       AutoDeactivate  =   True
@@ -335,7 +335,7 @@ End
 
 #tag Events CSVParser1
 	#tag Event
-		Sub headers(lineNumber as integer, values() as string)
+		Sub Headers(lineNumber as integer, values() as string)
 		  #Pragma unused lineNumber
 		  
 		  Dim rowRead As String
@@ -351,27 +351,31 @@ End
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub newLine(lineNumber as integer, values() as string)
+		Sub NewLine(lineNumber as integer, values() as string)
 		  #Pragma unused lineNumber
 		  
-		  // Dim rowRead As String
-		  // 
-		  // For i As Integer = 0 To ubound(values)
-		  // values(i) = DefineEncoding( values(i), Encodings.UTF8 )
-		  // 
-		  // rowRead = rowRead + "[" + ReplaceLineEndings(values(i),"<CR>") + "]"
-		  // next
-		  // 
-		  // TextArea1.AddText rowRead + EndOfLine
+		  Dim rowRead As String
 		  
-		  If lineNumber Mod 1000 = 0 Then
-		    TextArea1.AddText Str(lineNumber) + EndOfLine
-		  End If
+		  For i As Integer = 0 To ubound(values)
+		    values(i) = DefineEncoding( values(i), Encodings.UTF8 )
+		    
+		    rowRead = rowRead + "[" + ReplaceLineEndings(values(i),"<CR>") + "]"
+		  Next
+		  
+		  TextArea1.AddText rowRead + EndOfLine
+		  
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Finished()
+		  Dim d As New Date
+		  
+		  TextArea1.AddText "Done !" + d.SQLDateTime + EndOfLine
 		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events PushButton1
+#tag Events pbEventDriven
 	#tag Event
 		Sub Action()
 		  
@@ -385,14 +389,17 @@ End
 		    Return
 		  End If
 		  
-		  CSVParser1.treatFirstLineAsHeaders = CheckBox1.Value
+		  CSVParser1.treatFirstLineAsHeaders = chkFirstLineIsHeader.Value
+		  
+		  Dim d As New Date
+		  TextArea1.AddText "Start " + d.SQLDateTime + EndOfLine
 		  
 		  csvParser1.parse(inputFile)
 		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events PushButton2
+#tag Events pbDBParsers
 	#tag Event
 		Sub Action()
 		  
@@ -409,6 +416,9 @@ End
 		  If inputFile Is Nil Then 
 		    Return
 		  End If
+		  
+		  Dim d As New Date
+		  TextArea1.AddText "Start " + d.SQLDateTime + EndOfLine
 		  
 		  csvRecords = New CSVRecordSet(inputFile)
 		  
@@ -431,10 +441,14 @@ End
 		  
 		  csvRecords.Close
 		  
+		  d = New Date
+		  
+		  TextArea1.AddText "Done !" + d.SQLDateTime + EndOfLine
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events PushButton3
+#tag Events pbStressTest
 	#tag Event
 		Sub Action()
 		  
@@ -494,7 +508,7 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events PushButton4
+#tag Events pbUseTabs
 	#tag Event
 		Sub Action()
 		  
@@ -510,14 +524,14 @@ End
 		  
 		  CSVParser1.fieldseparator = Chr(9)
 		  
-		  CSVParser1.treatFirstLineAsHeaders = CheckBox1.Value
+		  CSVParser1.treatFirstLineAsHeaders = chkFirstLineIsHeader.Value
 		  
 		  csvParser1.parse(inputFile)
 		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events EditField1
+#tag Events txtEscapeChar
 	#tag Event
 		Sub TextChange()
 		  CSVParser1.FieldsEscapedBy = me.text

@@ -220,20 +220,26 @@ Protected Class CSVParser
 		  
 		  b.close
 		  
+		  raiseEvent Finished
+		  
 		End Sub
 	#tag EndMethod
 
 
 	#tag Hook, Flags = &h0
-		Event csvError(lineNumber as integer, fieldNumber as integer, error as string)
+		Event CSVError(lineNumber as integer, fieldNumber as integer, error as string)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event headers(lineNumber as integer, values() as string)
+		Event Finished()
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event newLine(lineNumber as integer, values() as string)
+		Event Headers(lineNumber as integer, values() as string)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event NewLine(lineNumber as integer, values() as string)
 	#tag EndHook
 
 
@@ -311,7 +317,7 @@ Protected Class CSVParser
 			Name="fieldenclosure"
 			Visible=false
 			Group="Behavior"
-			InitialValue=""""""
+			InitialValue=""""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
