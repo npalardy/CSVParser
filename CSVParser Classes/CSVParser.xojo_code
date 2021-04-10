@@ -49,26 +49,26 @@ Protected Class CSVParser
 		  #Pragma StackOverflowChecking false
 		  
 		  
-		  // dim b as binaryStream
-		  Dim b As BufferedStream
-		  dim c as integer
+		  
+		  Dim b As BufferedBinaryInputStream
+		  Dim c As Integer
 		  Dim fieldCount As Integer
-		  dim fieldBuffer as string
-		  dim state as integer
-		  dim line as integer
+		  Dim fieldBuffer As String
+		  Dim state As Integer
+		  Dim line As Integer
 		  
 		  Const start_field = 1
-		  const collect_chars = 2
-		  const end_field = 3 // generally this is a "processing state" and not used
-		  const error = 4
+		  Const collect_chars = 2
+		  Const end_field = 3 // generally this is a "processing state" and not used
+		  Const error = 4
 		  const quoted_field = 5
 		  const quote_in_quoted_field = 6
 		  
 		  Redim currentRow(-1)
 		  fieldCount = 1
 		  state = start_field
-		  // b = BinaryStream.open(f, False)
-		  b = bufferedStream.open(f, False)
+		  
+		  b = BufferedBinaryInputStream.open(f, False)
 		  
 		  while b.EOF <> true
 		    
@@ -317,7 +317,7 @@ Protected Class CSVParser
 			Name="fieldenclosure"
 			Visible=false
 			Group="Behavior"
-			InitialValue=""""
+			InitialValue=""""""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty

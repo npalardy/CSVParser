@@ -1,5 +1,5 @@
 #tag Class
-Protected Class BufferedStream
+Protected Class BufferedBinaryInputStream
 	#tag Method, Flags = &h0
 		Sub Close()
 		  mStream.Close
@@ -8,8 +8,8 @@ Protected Class BufferedStream
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub Constructor(f as folderitem, readWrite as Boolean = False)
+	#tag Method, Flags = &h1
+		Protected Sub Constructor(f as folderitem, readWrite as Boolean, buffersize as integer)
 		  #Pragma BackgroundTasks False
 		  #Pragma BoundsChecking False
 		  #Pragma NilObjectChecking False
@@ -22,7 +22,9 @@ Protected Class BufferedStream
 		  
 		  mStream = BinaryStream.Open(f, False)
 		  
-		  mBuffer = mStream.Read( kChunkSize, Nil )
+		  mBufferSize = buffersize
+		  
+		  mBuffer = mStream.Read( mBufferSize, Nil )
 		  
 		  mOffsetInBuffer = 0
 		  
@@ -31,9 +33,23 @@ Protected Class BufferedStream
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Shared Function Open(f as folderitem, readWrite as Boolean = False) As BufferedStream
+		Shared Function Open(f as folderitem) As BufferedBinaryInputStream
 		  
-		  return new BufferedStream(f, readwrite)
+		  return Open(f, false)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Shared Function Open(f as folderitem, readWrite as Boolean) As BufferedBinaryInputStream
+		  
+		  return Open(f, readwrite, kChunkSize)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Shared Function Open(f as folderitem, readWrite as Boolean, bufferSize as integer) As BufferedBinaryInputStream
+		  
+		  return new BufferedBinaryInputStream(f, readwrite, if(buffersize<=0, kChunkSize, bufferSize))
 		End Function
 	#tag EndMethod
 
@@ -48,11 +64,12 @@ Protected Class BufferedStream
 		    
 		    mLastFilePosition = mStream.Position
 		    
-		    mBuffer = mStream.Read( kChunkSize, Nil )
+		    mBuffer = mStream.Read( mBufferSize, Nil )
 		    
 		    mOffsetInBuffer = 0
+		  ElseIf mOffsetInBuffer < 0 Then
 		    
-		  Else
+		    Return 0
 		    
 		  End If
 		  
@@ -84,8 +101,21 @@ Protected Class BufferedStream
 		EOF As Boolean
 	#tag EndComputedProperty
 
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return mStream.Length
+			End Get
+		#tag EndGetter
+		Length As Integer
+	#tag EndComputedProperty
+
 	#tag Property, Flags = &h1
 		Protected mBuffer As memoryblock
+	#tag EndProperty
+
+	#tag Property, Flags = &h1
+		Protected mBufferSize As Integer
 	#tag EndProperty
 
 	#tag Property, Flags = &h1
@@ -110,11 +140,45 @@ Protected Class BufferedStream
 		#tag Setter
 			Set
 			  
-			  If mOffsetInBuffer > 0 Then
-			    mOffsetInBuffer = mOffsetInBuffer - 1
-			  Else
+			  Dim adjustedbufferreadsize As Integer = mBufferSize
+			  
+			  If value >= mLastFilePosition And value <= mLastFilePosition + mBuffer.Size Then
+			    
+			    mOffsetInBuffer = value - mLastFilePosition
+			    
+			  Elseif value < mLastFilePosition Then
+			    
 			    // back up in the file itself !
-			    break
+			    If mLastFilePosition >= mStream.Length Then
+			      
+			      If mStream.Position - mBufferSize < 0 Then
+			        adjustedbufferreadsize = max(value, 0)
+			      End If
+			      mStream.Position = max(0, mStream.Position - mBufferSize)
+			      
+			    Else
+			      
+			      If mStream.Position - mBuffer.Size - mBufferSize < 0 Then
+			        adjustedbufferreadsize = max(value, 0)
+			      End If
+			      mStream.Position = max(0, mStream.Position - mBuffer.Size - mBufferSize)
+			      
+			    End If
+			    
+			    mLastFilePosition = mStream.Position
+			    
+			    mBuffer = mStream.Read( adjustedbufferreadsize, Nil )
+			    
+			    mOffsetInBuffer = value - mLastFilePosition
+			    
+			  Elseif value > mLastFilePosition + mBuffer.Size Then
+			    
+			    Break
+			    
+			  Else
+			    
+			    Break
+			    
 			  End If
 			End Set
 		#tag EndSetter
@@ -168,7 +232,23 @@ Protected Class BufferedStream
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="mStream"
+			Name="EOF"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="position"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Length"
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
