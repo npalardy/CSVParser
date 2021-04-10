@@ -1,33 +1,16 @@
 #tag FileTypeSet
 	#tag FileType
-		CodeName=Text
-		Extension=
-		Flags=&h0
-		MacCreator=R*ch
-		MacType=TEXT
-		Name=text
+		CodeName=TextCSV
+		Extension=.csv
+		Flags=&h5
+		MacCreator=
+		MacType=
+		Name=CSV File
 		UTI=
-		UTIConformsTo=,public.data
-		Description=
+		UTIConformsTo=public.data
+		Description=a comma separated file
 		MimeType=
-		Imported=False
-		HandlerRank=&h9
-		UTIPhysicalType=public.data
-	#tag EndFileType
-
-	#tag FileType
-		CodeName=SpecialAny
-		DocIcon=SimpleCSVSample.xojo_resources;&h0
-		Extension=
-		Flags=&h0
-		MacCreator=????
-		MacType=????
-		Name=special/any
-		UTI=
-		UTIConformsTo=,public.data
-		Description=
-		MimeType=
-		Imported=False
+		Imported=True
 		HandlerRank=&h9
 		UTIPhysicalType=public.data
 	#tag EndFileType

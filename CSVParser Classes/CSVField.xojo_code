@@ -12,8 +12,8 @@ Protected Class CSVField
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub StringValue(assigns s as string)
+	#tag Method, Flags = &h21
+		Private Sub StringValue(assigns s as string)
 		  myValue = s
 		End Sub
 	#tag EndMethod

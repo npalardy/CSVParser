@@ -132,11 +132,11 @@ Begin Window Window1
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   456
+      Left            =   458
       LockBottom      =   False
       LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
+      LockLeft        =   False
+      LockRight       =   True
       LockTop         =   True
       Scope           =   0
       TabIndex        =   3
@@ -341,7 +341,9 @@ End
 		  Dim rowRead As String
 		  
 		  For i As Integer = 0 To ubound(values)
-		    rowRead = rowRead + "[" + ReplaceLineEndings(values(i),"<CR>") + "]"
+		    values(i) = DefineEncoding( values(i), Encodings.UTF8 )
+		    
+		    rowRead = rowRead + "[" + ReplaceLineEndings( values(i) ,"<CR>") + "]"
 		  Next
 		  
 		  TextArea1.AddText "HEADERS " + rowRead + EndOfLine
@@ -352,13 +354,19 @@ End
 		Sub newLine(lineNumber as integer, values() as string)
 		  #Pragma unused lineNumber
 		  
-		  Dim rowRead As String
+		  // Dim rowRead As String
+		  // 
+		  // For i As Integer = 0 To ubound(values)
+		  // values(i) = DefineEncoding( values(i), Encodings.UTF8 )
+		  // 
+		  // rowRead = rowRead + "[" + ReplaceLineEndings(values(i),"<CR>") + "]"
+		  // next
+		  // 
+		  // TextArea1.AddText rowRead + EndOfLine
 		  
-		  For i As Integer = 0 To ubound(values)
-		    rowRead = rowRead + "[" + ReplaceLineEndings(values(i),"<CR>") + "]"
-		  next
-		  
-		  TextArea1.AddText rowRead + EndOfLine
+		  If lineNumber Mod 1000 = 0 Then
+		    TextArea1.AddText Str(lineNumber) + EndOfLine
+		  End If
 		  
 		End Sub
 	#tag EndEvent
@@ -371,7 +379,7 @@ End
 		  
 		  TextArea1.Text = ""
 		  
-		  inputFile = GetOpenFolderItem("special/any")
+		  inputFile = GetOpenFolderItem( FileTypes.TextCSV )
 		  
 		  If inputFile Is Nil Then 
 		    Return
@@ -396,7 +404,7 @@ End
 		  
 		  TextArea1.Text = ""
 		  
-		  inputFile = GetOpenFolderItem("special/any")
+		  inputFile = GetOpenFolderItem(FileTypes.TextCSV)
 		  
 		  If inputFile Is Nil Then 
 		    Return
@@ -409,7 +417,10 @@ End
 		    
 		    For i = 1 To csvRecords.FieldCount
 		      dbField = csvRecords.idxField(i)
-		      rowRead = rowRead + "[" + ReplaceLineEndings(dbField.StringValue,"<CR>") + "]"
+		      
+		      Dim dbFieldValue As String = DefineEncoding( dbField.StringValue, Encodings.UTF8 )
+		      
+		      rowRead = rowRead + "[" + ReplaceLineEndings(dbFieldValue,"<CR>") + "]"
 		    Next
 		    
 		    TextArea1.AddText rowRead + EndOfLine
@@ -450,7 +461,10 @@ End
 		    
 		    For i = 1 To csvRecords.FieldCount
 		      dbField = csvRecords.idxField(i)
-		      rowRead = rowRead + "[" + ReplaceLineEndings(dbField.StringValue,"<CR>") + "]"
+		      
+		      Dim dbFieldValue As String = DefineEncoding( dbField.StringValue, Encodings.UTF8)
+		      
+		      rowRead = rowRead + "[" + ReplaceLineEndings(dbFieldValue,"<CR>") + "]"
 		    Next
 		    
 		    TextArea1.AddText rowRead + EndOfLine
@@ -495,6 +509,7 @@ End
 		  End If
 		  
 		  CSVParser1.fieldseparator = Chr(9)
+		  
 		  CSVParser1.treatFirstLineAsHeaders = CheckBox1.Value
 		  
 		  csvParser1.parse(inputFile)

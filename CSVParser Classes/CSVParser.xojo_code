@@ -2,7 +2,12 @@
 Protected Class CSVParser
 	#tag Method, Flags = &h1
 		Protected Sub handleLine(lineNumber as integer, values() as string)
-		  if treatFirstLineAsHeaders and lineNumber = 1 then
+		  #Pragma BackgroundTasks False
+		  #Pragma BoundsChecking False
+		  #Pragma NilObjectChecking False
+		  #Pragma StackOverflowChecking False
+		  
+		  If treatFirstLineAsHeaders And lineNumber = 1 Then
 		    headers(lineNumber, values)
 		  else
 		    newLine(lineNumber, values)
@@ -13,7 +18,12 @@ Protected Class CSVParser
 
 	#tag Method, Flags = &h1
 		Protected Sub newField(value as String)
-		  dim tmp as string
+		  #Pragma BackgroundTasks False
+		  #Pragma BoundsChecking False
+		  #Pragma NilObjectChecking False
+		  #Pragma StackOverflowChecking False
+		  
+		  Dim tmp As String
 		  
 		  if FieldsEscapedBy <> "" then
 		    tmp = value 
@@ -33,27 +43,32 @@ Protected Class CSVParser
 
 	#tag Method, Flags = &h0
 		Sub parse(f as folderitem)
-		  #pragma disableBackgroundTasks
-		  #pragma disableBoundsChecking
+		  #Pragma BackgroundTasks False
+		  #Pragma BoundsChecking False
+		  #Pragma NilObjectChecking False
+		  #Pragma StackOverflowChecking false
 		  
-		  dim b as binaryStream
+		  
+		  // dim b as binaryStream
+		  Dim b As BufferedStream
 		  dim c as integer
-		  dim fieldCount as integer
+		  Dim fieldCount As Integer
 		  dim fieldBuffer as string
 		  dim state as integer
 		  dim line as integer
 		  
-		  const start_field = 1
+		  Const start_field = 1
 		  const collect_chars = 2
 		  const end_field = 3 // generally this is a "processing state" and not used
 		  const error = 4
 		  const quoted_field = 5
 		  const quote_in_quoted_field = 6
 		  
-		  redim currentRow(-1)
+		  Redim currentRow(-1)
 		  fieldCount = 1
 		  state = start_field
-		  b = BinaryStream.open(f, false)
+		  // b = BinaryStream.open(f, False)
+		  b = bufferedStream.open(f, False)
 		  
 		  while b.EOF <> true
 		    
@@ -296,7 +311,7 @@ Protected Class CSVParser
 			Name="fieldenclosure"
 			Visible=false
 			Group="Behavior"
-			InitialValue=""""
+			InitialValue=""""""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
