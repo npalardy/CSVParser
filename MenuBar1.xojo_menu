@@ -15,6 +15,39 @@ Begin Menu MenuBar1
       AutoEnabled = False
       AutoEnable = False
       Visible = True
+      Begin MenuItem FileNew
+         SpecialMenu = 0
+         Index = -2147483648
+         Text = "New"
+         AutoEnabled = True
+         AutoEnable = True
+         SubMenu = True
+         Visible = True
+         Begin MenuItem NewFileParser
+            SpecialMenu = 0
+            Index = -2147483648
+            Text = "File Parser Window"
+            AutoEnabled = True
+            AutoEnable = True
+            Visible = True
+         End
+         Begin MenuItem NewStringParserWindow
+            SpecialMenu = 0
+            Index = -2147483648
+            Text = "String Parser Window"
+            AutoEnabled = True
+            AutoEnable = True
+            Visible = True
+         End
+      End
+      Begin MenuItem UntitledMenu5
+         SpecialMenu = 0
+         Index = -2147483648
+         Text = "-"
+         AutoEnabled = False
+         AutoEnable = False
+         Visible = True
+      End
       Begin QuitMenuItem FileQuit
          SpecialMenu = 0
          Index = -2147483648
@@ -24,14 +57,6 @@ Begin Menu MenuBar1
          MenuModifier = True
          AutoEnabled = True
          AutoEnable = True
-         Visible = True
-      End
-      Begin MenuItem UntitledMenu5
-         SpecialMenu = 0
-         Index = -2147483648
-         Text = ""
-         AutoEnabled = False
-         AutoEnable = False
          Visible = True
       End
    End
@@ -125,6 +150,14 @@ Begin Menu MenuBar1
       Text = ""
       AutoEnabled = False
       AutoEnable = False
+      Visible = True
+   End
+   Begin MenuItem Menu
+      SpecialMenu = 0
+      Index = -2147483648
+      Text = ""
+      AutoEnabled = True
+      AutoEnable = True
       Visible = True
    End
 End

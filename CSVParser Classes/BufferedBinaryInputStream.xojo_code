@@ -32,6 +32,30 @@ Protected Class BufferedBinaryInputStream
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h1
+		Protected Sub Constructor(inputCSVString as string, readWrite as Boolean, buffersize as integer)
+		  #Pragma BackgroundTasks False
+		  #Pragma BoundsChecking False
+		  #Pragma NilObjectChecking False
+		  #Pragma StackOverflowChecking False
+		  
+		  #Pragma Unused readWrite
+		  
+		  // we're going to IGNORE READWRITE for now :)
+		  Dim mb As memoryblock = inputCSVString
+		  
+		  mStream = New BinaryStream(mb)
+		  
+		  mBufferSize = buffersize
+		  
+		  mBuffer = mStream.Read( mBufferSize, Nil )
+		  
+		  mOffsetInBuffer = 0
+		  
+		  mLastFilePosition = 0
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Shared Function Open(f as folderitem) As BufferedBinaryInputStream
 		  
@@ -50,6 +74,27 @@ Protected Class BufferedBinaryInputStream
 		Shared Function Open(f as folderitem, readWrite as Boolean, bufferSize as integer) As BufferedBinaryInputStream
 		  
 		  return new BufferedBinaryInputStream(f, readwrite, if(buffersize<=0, kChunkSize, bufferSize))
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Shared Function Open(csvInputString as string) As BufferedBinaryInputStream
+		  
+		  return Open(csvInputString, false)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Shared Function Open(csvInputString as string, readWrite as Boolean) As BufferedBinaryInputStream
+		  
+		  return Open(csvInputString, readwrite, kChunkSize)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Shared Function Open(csvInputString as string, readWrite as Boolean, bufferSize as integer) As BufferedBinaryInputStream
+		  
+		  return new BufferedBinaryInputStream(csvInputString, readwrite, if(buffersize<=0, kChunkSize, bufferSize))
 		End Function
 	#tag EndMethod
 

@@ -1,5 +1,5 @@
 #tag Window
-Begin Window Window1
+Begin Window StringBasedTests
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    BalloonHelp     =   ""
@@ -9,7 +9,7 @@ Begin Window Window1
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   275
+   Height          =   663
    ImplicitInstance=   True
    LiveResize      =   "False"
    MacProcID       =   0
@@ -18,16 +18,15 @@ Begin Window Window1
    MaxWidth        =   32000
    MenuBar         =   -1103311854
    MenuBarVisible  =   True
-   MinHeight       =   64
+   MinHeight       =   663
    MinimizeButton  =   True
-   MinWidth        =   64
+   MinWidth        =   631
    Placement       =   0
    Resizeable      =   True
-   Title           =   "Untitled"
+   Title           =   "String Based CSV Parser"
    Visible         =   True
-   Width           =   633
+   Width           =   631
    Begin CSVParser CSVParser1
-      Enabled         =   True
       fieldenclosure  =   """"""
       fieldseparator  =   ","
       FieldsEscapedBy =   ""
@@ -70,7 +69,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   148
    End
-   Begin TextArea TextArea1
+   Begin TextArea txtResults
       AcceptTabs      =   False
       Alignment       =   0
       AutoDeactivate  =   True
@@ -82,7 +81,7 @@ Begin Window Window1
       DataSource      =   ""
       Enabled         =   True
       Format          =   ""
-      Height          =   100
+      Height          =   247
       HelpTag         =   ""
       HideSelection   =   True
       Index           =   -2147483648
@@ -112,13 +111,13 @@ Begin Window Window1
       TextFont        =   "System"
       TextSize        =   12.0
       TextUnit        =   0
-      Top             =   155
+      Top             =   396
       Transparent     =   True
       Underline       =   False
       UnicodeMode     =   0
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   591
+      Width           =   589
    End
    Begin PushButton pbDBParsers
       AutoDeactivate  =   True
@@ -133,7 +132,7 @@ Begin Window Window1
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   458
+      Left            =   456
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   False
@@ -165,7 +164,7 @@ Begin Window Window1
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   458
+      Left            =   456
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   False
@@ -181,7 +180,7 @@ Begin Window Window1
       Top             =   58
       Transparent     =   True
       Underline       =   False
-      Visible         =   True
+      Visible         =   False
       Width           =   155
    End
    Begin PushButton pbUseTabs
@@ -328,6 +327,125 @@ Begin Window Window1
       Visible         =   True
       Width           =   142
    End
+   Begin Label label1
+      AutoDeactivate  =   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   9
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Source"
+      TextAlign       =   0
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   143
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   False
+      Width           =   67
+   End
+   Begin Label Label2
+      AutoDeactivate  =   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   10
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Results"
+      TextAlign       =   0
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   373
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   64
+   End
+   Begin TextArea txtSource
+      AcceptTabs      =   False
+      Alignment       =   0
+      AutoDeactivate  =   True
+      AutomaticallyCheckSpelling=   True
+      BackColor       =   &cFFFFFF00
+      Bold            =   False
+      Border          =   True
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Format          =   ""
+      Height          =   185
+      HelpTag         =   ""
+      HideSelection   =   True
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   22
+      LimitText       =   0
+      LineHeight      =   0.0
+      LineSpacing     =   1.0
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   True
+      LockTop         =   True
+      Mask            =   ""
+      Multiline       =   True
+      ReadOnly        =   False
+      Scope           =   0
+      ScrollbarHorizontal=   True
+      ScrollbarVertical=   True
+      Styled          =   True
+      TabIndex        =   11
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   ""
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   12.0
+      TextUnit        =   0
+      Top             =   167
+      Transparent     =   True
+      Underline       =   False
+      UnicodeMode     =   0
+      UseFocusRing    =   True
+      Visible         =   True
+      Width           =   589
+   End
 End
 #tag EndWindow
 
@@ -347,7 +465,7 @@ End
 		    rowRead = rowRead + "[" + ReplaceLineEndings( values(i) ,"<CR>") + "]"
 		  Next
 		  
-		  TextArea1.AddText "HEADERS " + rowRead + EndOfLine
+		  txtResults.AddText "HEADERS " + rowRead + EndOfLine
 		  
 		End Sub
 	#tag EndEvent
@@ -363,7 +481,7 @@ End
 		    rowRead = rowRead + "[" + ReplaceLineEndings(values(i),"<CR>") + "]"
 		  Next
 		  
-		  TextArea1.AddText rowRead + EndOfLine
+		  txtResults.AddText rowRead + EndOfLine
 		  
 		End Sub
 	#tag EndEvent
@@ -371,7 +489,7 @@ End
 		Sub Finished()
 		  Dim d As New Date
 		  
-		  TextArea1.AddText "Done !" + d.SQLDateTime + EndOfLine
+		  txtResults.AddText "Done !" + d.SQLDateTime + EndOfLine
 		  
 		End Sub
 	#tag EndEvent
@@ -380,22 +498,14 @@ End
 	#tag Event
 		Sub Action()
 		  
-		  Dim inputFile As FolderItem
-		  
-		  TextArea1.Text = ""
-		  
-		  inputFile = GetOpenFolderItem( FileTypes.TextCSV )
-		  
-		  If inputFile Is Nil Then 
-		    Return
-		  End If
+		  txtResults.Text = ""
 		  
 		  CSVParser1.treatFirstLineAsHeaders = chkFirstLineIsHeader.Value
 		  
 		  Dim d As New Date
-		  TextArea1.AddText "Start " + d.SQLDateTime + EndOfLine
+		  txtResults.AddText "Start " + d.SQLDateTime + EndOfLine
 		  
-		  csvParser1.parse(inputFile)
+		  csvParser1.parse(txtSource.Text)
 		  
 		End Sub
 	#tag EndEvent
@@ -404,24 +514,17 @@ End
 	#tag Event
 		Sub Action()
 		  
-		  Dim inputFile As FolderItem
-		  dim i as integer
+		  Dim i As Integer
 		  Dim rowRead As String
 		  Dim csvRecords As CSVRecordSet
 		  Dim dbField As CSVField
 		  
-		  TextArea1.Text = ""
-		  
-		  inputFile = GetOpenFolderItem(FileTypes.TextCSV)
-		  
-		  If inputFile Is Nil Then 
-		    Return
-		  End If
+		  txtResults.Text = ""
 		  
 		  Dim d As New Date
-		  TextArea1.AddText "Start " + d.SQLDateTime + EndOfLine
+		  txtResults.AddText "Start " + d.SQLDateTime + EndOfLine
 		  
-		  csvRecords = New CSVRecordSet(inputFile)
+		  csvRecords = New CSVRecordSet(txtSource.Text)
 		  
 		  While csvRecords.EOF <> True
 		    rowRead = ""
@@ -434,7 +537,7 @@ End
 		      rowRead = rowRead + "[" + ReplaceLineEndings(dbFieldValue,"<CR>") + "]"
 		    Next
 		    
-		    TextArea1.AddText rowRead + EndOfLine
+		    txtResults.AddText rowRead + EndOfLine
 		    
 		    csvRecords.MoveNext
 		    
@@ -444,7 +547,7 @@ End
 		  
 		  d = New Date
 		  
-		  TextArea1.AddText "Done !" + d.SQLDateTime + EndOfLine
+		  txtResults.AddText "Done !" + d.SQLDateTime + EndOfLine
 		  
 		End Sub
 	#tag EndEvent
@@ -459,7 +562,7 @@ End
 		  Dim csvRecords As CSVRecordSet
 		  Dim dbField As CSVField
 		  
-		  TextArea1.Text = ""
+		  txtResults.Text = ""
 		  
 		  inputFile = GetOpenFolderItem("special/any")
 		  
@@ -482,7 +585,7 @@ End
 		      rowRead = rowRead + "[" + ReplaceLineEndings(dbFieldValue,"<CR>") + "]"
 		    Next
 		    
-		    TextArea1.AddText rowRead + EndOfLine
+		    txtResults.AddText rowRead + EndOfLine
 		    
 		    csvRecords.MoveNext
 		    
@@ -512,22 +615,16 @@ End
 #tag Events pbUseTabs
 	#tag Event
 		Sub Action()
-		  
-		  Dim inputFile As FolderItem
-		  
-		  inputFile = GetOpenFolderItem("special/any")
-		  
-		  TextArea1.Text = ""
-		  
-		  If inputFile Is Nil Then 
-		    Return
-		  End If
+		  txtResults.Text = ""
 		  
 		  CSVParser1.fieldseparator = Chr(9)
 		  
 		  CSVParser1.treatFirstLineAsHeaders = chkFirstLineIsHeader.Value
 		  
-		  csvParser1.parse(inputFile)
+		  Dim d As New Date
+		  txtResults.AddText "Start " + d.SQLDateTime + EndOfLine
+		  
+		  csvParser1.parse(txtSource.Text)
 		  
 		End Sub
 	#tag EndEvent

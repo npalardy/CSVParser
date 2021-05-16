@@ -24,12 +24,24 @@ Protected Class CSVRecordSet
 
 	#tag Method, Flags = &h0
 		Sub Constructor(f as folderItem)
-		  if not (f is nil) then
+		  If Not (f Is Nil) Then
 		    myFile = f
-		    inputFile = BinaryStream.Open(myFile, false)
+		    'inputFile = BinaryStream.Open(myFile, false)
+		    InputFile = BufferedBinaryInputStream.Open(myFile, False)
 		    
 		    MoveNext
 		  end if
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Constructor(inputCSVString as string)
+		  
+		  'inputFile = BinaryStream.Open(myFile, false)
+		  InputFile = BufferedBinaryInputStream.Open(inputCSVString, False)
+		  
+		  MoveNext
 		  
 		End Sub
 	#tag EndMethod
@@ -88,8 +100,8 @@ Protected Class CSVRecordSet
 		Sub MoveFirst()
 		  if inputFile is nil then
 		    
-		    inputFile = BinaryStream.Open(myFile, false)
-		    
+		    //inputFile = BinaryStream.Open(myFile, false)
+		    inputFile = BufferedBinaryInputStream.Open(myFile, false)
 		  end if
 		  
 		  inputFile.Position = 0
@@ -317,7 +329,7 @@ Protected Class CSVRecordSet
 	#tag EndProperty
 
 	#tag Property, Flags = &h1
-		Protected inputFile As binaryStream
+		Protected InputFile As BufferedBinaryInputStream
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
