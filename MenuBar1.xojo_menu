@@ -39,6 +39,14 @@ Begin Menu MenuBar1
             AutoEnable = True
             Visible = True
          End
+         Begin MenuItem NewCSVWriterWindow
+            SpecialMenu = 0
+            Index = -2147483648
+            Text = "CSV Writer Window"
+            AutoEnabled = True
+            AutoEnable = True
+            Visible = True
+         End
       End
       Begin MenuItem UntitledMenu5
          SpecialMenu = 0
