@@ -3,7 +3,8 @@ Protected Class App
 Inherits Application
 	#tag MenuHandler
 		Function NewCSVWriterWindow() As Boolean Handles NewCSVWriterWindow.Action
-			Dim m As New csvWriterWindow
+			Dim m As csvWriterWindow
+			m = New csvWriterWindow
 			
 			Return True
 			
@@ -12,7 +13,8 @@ Inherits Application
 
 	#tag MenuHandler
 		Function NewFileParser() As Boolean Handles NewFileParser.Action
-			Dim m As New fileBasedTests
+			Dim m As fileBasedTests
+			m = New fileBasedTests
 			
 			Return True
 			
@@ -21,7 +23,8 @@ Inherits Application
 
 	#tag MenuHandler
 		Function NewStringParserWindow() As Boolean Handles NewStringParserWindow.Action
-			Dim m As New StringBasedTests
+			Dim m As StringBasedTests
+			m = New StringBasedTests
 			
 			Return True
 			

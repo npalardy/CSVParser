@@ -82,6 +82,50 @@ Protected Class CSVWriter
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Sub Write(rs as recordset)
+		  If rs Is Nil Then 
+		    Return
+		  End If
+		  
+		  If mIsClosed Then
+		    Raise New UnsupportedOperationException("Writer is closed")
+		  End If
+		  
+		  SetEOL
+		  
+		  mHasWritten = True
+		  
+		  If mWasZeroParamConstructed And mOutStream Is Nil Then
+		    mOutStream = RaiseEvent Setup
+		  End If
+		  
+		  If mOutStream Is Nil Then
+		    Raise New UnsupportedOperationException("Unable to write to nil output stream")
+		  End If
+		  
+		  While rs.eof <> True
+		    
+		    For i As Integer = 1 To rs.FieldCount
+		      
+		      If i > 1 Then
+		        WriteComma
+		      End If
+		      
+		      Writefield(rs.IdxField(i))
+		      
+		    Next
+		    
+		    WriteEndOfLine
+		    
+		    rs.MoveNext
+		    
+		  Wend
+		  
+		  
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h1
 		Protected Sub WriteComma()
 		  mOutStream.Write ","
@@ -337,7 +381,7 @@ Protected Class CSVWriter
 		#tag EndGetter
 		#tag Setter
 			Set
-			  If mHasWritten = True Then 
+			  If mHasWritten = True Then
 			    Return
 			  End If
 			  

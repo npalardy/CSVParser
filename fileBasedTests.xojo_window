@@ -27,6 +27,7 @@ Begin Window fileBasedTests
    Visible         =   True
    Width           =   633
    Begin CSVParser CSVParser1
+      Enabled         =   True
       fieldenclosure  =   """"""
       fieldseparator  =   ","
       FieldsEscapedBy =   ""

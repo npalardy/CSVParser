@@ -153,10 +153,43 @@ Begin Window csvWriterWindow
       Width           =   350
    End
    Begin CSVWriter writer1
+      EOLStyle        =   ""
       Index           =   -2147483648
       LockedInPosition=   False
       Scope           =   0
       TabPanelIndex   =   0
+   End
+   Begin PushButton pbWriteRS
+      AutoDeactivate  =   True
+      Bold            =   False
+      ButtonStyle     =   0
+      Cancel          =   False
+      Caption         =   "Writing recordset to a new file"
+      Default         =   False
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   2
+      TabIndex        =   4
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   178
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   350
    End
 End
 #tag EndWindow
@@ -393,6 +426,58 @@ End
 		  End If
 		  
 		End Function
+	#tag EndEvent
+#tag EndEvents
+#tag Events pbWriteRS
+	#tag Event
+		Sub Action()
+		  Dim r As Random
+		  r = New random
+		  
+		  Dim db As SQLiteDatabase
+		  db = New SQLiteDatabase
+		  
+		  Call db.Connect
+		  db.SQLExecute("create table TestTable(intField integer, dblField Double, dtField date, boolField boolean)")
+		  For i As Integer = 1 To 10
+		    
+		    Dim dt As datetime 
+		    dt = DateTime.Now
+		    
+		    Dim dbl As Double
+		    dbl = r.InRange(1000, 2000) / 100
+		    
+		    Dim bool As Boolean
+		    
+		    bool = r.inrange(0,99) < 50
+		    
+		    db.SQLExecute("insert into TestTable(intField, dblField, dtField, boolField) values(" + Str(i) + "," + Str(dbl) + ",'" + dt.ToString + "'," + Str(bool) + ")" )
+		    
+		  Next
+		  
+		  Dim rs As RecordSet
+		  rs = db.SQLSelect("select * from TestTable")
+		  
+		  Dim dlg As New SaveFileDialog
+		  
+		  Dim f As folderitem = dlg.ShowModal
+		  
+		  If f <> Nil Then
+		    Try
+		      Dim csvwrite As New CSVWriter( f )
+		      
+		      // ok lets write 
+		      csvwrite.Write rs
+		      
+		      csvwrite.Close
+		      
+		    Catch usoEx As UnsupportedOperationException
+		      MsgBox usoEx.Message
+		    End Try
+		  End If
+		  
+		  
+		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
